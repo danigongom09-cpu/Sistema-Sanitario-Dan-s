@@ -1,0 +1,3052 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- Hace que la web funcione correctamente en móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================================================
+         ✏️ MODIFICAR: título de la pestaña del navegador
+         ========================================================= -->
+    <title>Sistema Sanitario Danés </title>
+
+    <style>
+        /* =========================================================
+           VARIABLES GENERALES
+
+           ✏️ MODIFICAR AQUÍ COLORES DE TODA LA WEB
+           ========================================================= */
+
+        :root {
+
+            --rojo: #b5122b;
+            --rojo-oscuro: #7d0d1e;
+            --rojo-claro: #f7dfe4;
+
+            --azul: #173f5f;
+            --azul-claro: #dceaf4;
+
+            --verde: #2d7d46;
+            --amarillo: #e7b93c;
+
+            --fondo: #f4f6f8;
+            --blanco: #ffffff;
+
+            --texto: #20252b;
+            --gris: #66717b;
+            --borde: #dfe3e7;
+
+            --sombra:
+                0 10px 30px rgba(0, 0, 0, 0.08);
+
+            --radio: 18px;
+        }
+
+
+        /* =========================================================
+           RESET
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: var(--fondo);
+
+            color: var(--texto);
+
+            line-height: 1.65;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+        img,
+        svg {
+            max-width: 100%;
+        }
+
+
+        /* =========================================================
+           CABECERA
+           ========================================================= */
+
+        header {
+
+            min-height: 88vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            color: white;
+
+            background:
+                radial-gradient(circle at 20% 20%,
+                    rgba(255, 255, 255, .12),
+                    transparent 30%),
+                linear-gradient(135deg,
+                    var(--rojo),
+                    var(--rojo-oscuro));
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        /* Decoración de fondo */
+
+        header::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border: 1px solid rgba(255, 255, 255, .12);
+
+            border-radius: 50%;
+
+            top: -250px;
+            right: -150px;
+        }
+
+
+        header::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border: 1px solid rgba(255, 255, 255, .10);
+
+            border-radius: 50%;
+
+            bottom: -180px;
+            left: -100px;
+        }
+
+
+        .hero-content {
+
+            max-width: 950px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .flag {
+
+            font-size: 5rem;
+
+            margin-bottom: 20px;
+
+            animation:
+                floatFlag 1s ease-in-out infinite;
+        }
+
+
+        @keyframes floatFlag {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+
+        .hero-content h1 {
+
+            font-size:
+                clamp(2.5rem, 7vw, 5.5rem);
+
+            line-height: 1.05;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero-content p {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            font-size: 1.2rem;
+
+            opacity: .94;
+        }
+
+
+        .hero-button {
+
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding: 15px 25px;
+
+            border-radius: 999px;
+
+            background: rgb(241, 243, 219);
+
+            color: var(--rojo);
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: .25s;
+        }
+
+
+        .hero-button:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, .2);
+        }
+
+
+        /* =========================================================
+           MENÚ
+           ========================================================= */
+
+        nav {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background:
+                rgba(255, 255, 255, .96);
+
+            border-bottom:
+                1px solid var(--borde);
+
+            box-shadow:
+                0 3px 15px rgba(0, 0, 0, .06);
+        }
+
+
+        nav ul {
+
+            list-style: none;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+        }
+
+
+        nav a {
+
+            display: block;
+
+            text-decoration: none;
+
+            padding: 15px 16px;
+
+            font-size: .9rem;
+
+            font-weight: bold;
+
+            color: var(--texto);
+
+            transition: .2s;
+        }
+
+
+        nav a:hover {
+
+            background: var(--rojo);
+
+            color: white;
+        }
+
+
+        /* =========================================================
+           CONTENIDO
+           ========================================================= */
+
+        main {
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            padding:
+                70px 20px;
+        }
+
+
+        section {
+
+            margin-bottom: 110px;
+
+            scroll-margin-top: 90px;
+        }
+
+
+        .section-heading {
+
+            text-align: center;
+
+            max-width: 800px;
+
+            margin:
+                0 auto 45px;
+        }
+
+
+        .section-heading .number {
+
+            display: inline-block;
+
+            color: var(--rojo);
+
+            font-size: .85rem;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                clamp(2rem, 5vw, 3.2rem);
+
+            margin-bottom: 12px;
+        }
+
+
+        .section-heading p {
+
+            color: var(--gris);
+        }
+
+
+        /* =========================================================
+           TARJETAS
+           ========================================================= */
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 22px;
+        }
+
+
+        .card {
+
+            background: var(--blanco);
+
+            border:
+                1px solid var(--borde);
+
+            border-radius: var(--radio);
+
+            padding: 28px;
+
+            box-shadow: var(--sombra);
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+
+        .card::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 4px;
+
+            background: var(--rojo);
+
+            transform:
+                scaleX(0);
+
+            transform-origin: left;
+
+            transition: .3s;
+        }
+
+
+        .card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, .12);
+        }
+
+
+        .card:hover::before {
+
+            transform:
+                scaleX(1);
+        }
+
+
+        .card-icon {
+
+            font-size: 2.3rem;
+
+            margin-bottom: 15px;
+        }
+
+
+        .card h3 {
+
+            color: var(--azul);
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================================================
+           BLOQUE DESTACADO
+           ========================================================= */
+
+        .highlight {
+
+            background: white;
+
+            border-left:
+                6px solid var(--rojo);
+
+            border-radius:
+                0 var(--radio) var(--radio) 0;
+
+            padding: 30px;
+
+            box-shadow: var(--sombra);
+        }
+
+
+        .highlight strong {
+
+            color: var(--rojo);
+        }
+
+
+        /* =========================================================
+           DATOS PRINCIPALES
+           ========================================================= */
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(190px, 1fr));
+
+            gap: 20px;
+        }
+
+
+        .stat {
+
+            background: white;
+
+            border-radius: var(--radio);
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            box-shadow: var(--sombra);
+
+            border:
+                1px solid var(--borde);
+
+            transition: .3s;
+        }
+
+
+        .stat:hover {
+
+            transform:
+                translateY(-6px);
+        }
+
+
+        .stat-number {
+
+            font-size: 2.6rem;
+
+            font-weight: 900;
+
+            color: var(--rojo);
+        }
+
+
+        .stat-label {
+
+            color: var(--gris);
+
+            font-size: .95rem;
+        }
+
+
+        /* =========================================================
+           GRID DOS COLUMNAS
+           ========================================================= */
+
+        .two-columns {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 30px;
+        }
+
+
+        .panel {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: var(--radio);
+
+            box-shadow: var(--sombra);
+
+            border:
+                1px solid var(--borde);
+        }
+
+
+        .panel h3 {
+
+            margin-bottom: 20px;
+
+            color: var(--azul);
+        }
+
+
+        /* =========================================================
+           GRÁFICOS SVG
+           ========================================================= */
+
+        .chart-container {
+
+            width: 100%;
+
+            overflow-x: auto;
+        }
+
+
+        .chart {
+
+            width: 100%;
+
+            min-width: 600px;
+
+            height: auto;
+
+            display: block;
+        }
+
+
+        .chart-grid {
+
+            stroke: #d9dee3;
+
+            stroke-width: 1;
+        }
+
+
+        .chart-axis {
+
+            stroke: #6d7680;
+
+            stroke-width: 2;
+        }
+
+
+        .chart-text {
+
+            font-size: 14px;
+
+            fill: #46515a;
+        }
+
+
+        .chart-title {
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            fill: #173f5f;
+        }
+
+
+        .chart-bar-denmark {
+
+            fill: #b5122b;
+        }
+
+
+        .chart-bar-spain {
+
+            fill: #1b5b79;
+        }
+
+
+        .chart-line {
+
+            fill: none;
+
+            stroke: #b5122b;
+
+            stroke-width: 5;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+        }
+
+
+        .chart-point {
+
+            fill: white;
+
+            stroke: #b5122b;
+
+            stroke-width: 4;
+        }
+
+
+        /* =========================================================
+           MAPA SVG
+           ========================================================= */
+
+        .map-wrapper {
+
+            background: white;
+
+            border-radius: var(--radio);
+
+            box-shadow: var(--sombra);
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+
+        .denmark-map {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            height: auto;
+
+            margin: auto;
+        }
+
+
+        .map-region {
+
+            fill: #dceaf4;
+
+            stroke: #173f5f;
+
+            stroke-width: 3;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+
+        .map-region:hover {
+
+            fill: #b5122b;
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        .map-label {
+
+            fill: #173f5f;
+
+            font-weight: bold;
+
+            pointer-events: none;
+        }
+
+
+        .map-info {
+
+            margin-top: 20px;
+
+            padding: 18px;
+
+            border-radius: 12px;
+
+            background: #f5f7f9;
+
+            min-height: 70px;
+        }
+
+
+        /* =========================================================
+           TIMELINE
+           ========================================================= */
+
+        .timeline {
+
+            position: relative;
+
+            max-width: 950px;
+
+            margin: auto;
+        }
+
+
+        .timeline::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            width: 4px;
+
+            height: 100%;
+
+            background: var(--rojo);
+
+            border-radius: 5px;
+        }
+
+
+        .timeline-item {
+
+            width: 50%;
+
+            padding: 20px 35px;
+
+            position: relative;
+        }
+
+
+        .timeline-item:nth-child(odd) {
+
+            left: 0;
+
+            text-align: right;
+        }
+
+
+        .timeline-item:nth-child(even) {
+
+            left: 50%;
+        }
+
+
+        .timeline-content {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: var(--radio);
+
+            box-shadow: var(--sombra);
+
+            border:
+                1px solid var(--borde);
+        }
+
+
+        .timeline-content h3 {
+
+            color: var(--rojo);
+
+            margin-bottom: 8px;
+        }
+
+
+        .timeline-dot {
+
+            position: absolute;
+
+            width: 18px;
+
+            height: 18px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            border:
+                5px solid var(--rojo);
+
+            top: 38px;
+
+            right: -9px;
+
+            z-index: 2;
+        }
+
+
+        .timeline-item:nth-child(even) .timeline-dot {
+
+            left: -9px;
+
+            right: auto;
+        }
+
+
+        /* =========================================================
+           COMPARACIÓN
+           ========================================================= */
+
+        .comparison-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+
+            border-radius: var(--radio);
+
+            overflow: hidden;
+
+            box-shadow: var(--sombra);
+        }
+
+
+        .comparison-table th {
+
+            background: var(--azul);
+
+            color: white;
+
+            padding: 18px;
+
+            text-align: left;
+        }
+
+
+        .comparison-table td {
+
+            padding: 18px;
+
+            border-bottom:
+                1px solid var(--borde);
+        }
+
+
+        .comparison-table tr:last-child td {
+
+            border-bottom: none;
+        }
+
+
+        .comparison-table tr:hover td {
+
+            background: #f7f8fa;
+        }
+
+
+        /* =========================================================
+           ACORDEÓN
+           ========================================================= */
+
+        .accordion {
+
+            background: white;
+
+            border-radius: var(--radio);
+
+            overflow: hidden;
+
+            box-shadow: var(--sombra);
+        }
+
+
+        .accordion-item {
+
+            border-bottom:
+                1px solid var(--borde);
+        }
+
+
+        .accordion-item:last-child {
+
+            border-bottom: none;
+        }
+
+
+        .accordion-button {
+
+            width: 100%;
+
+            border: none;
+
+            background: white;
+
+            padding: 22px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            font-size: 1rem;
+
+            color: var(--azul);
+
+            transition: .2s;
+        }
+
+
+        .accordion-button:hover {
+
+            background:
+                var(--rojo-claro);
+        }
+
+
+        .accordion-content {
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            padding:
+                0 22px;
+
+            transition:
+                max-height .3s ease,
+                padding .3s ease;
+        }
+
+
+        .accordion-content.open {
+
+            max-height: 300px;
+
+            padding:
+                0 22px 22px;
+        }
+
+
+        /* =========================================================
+           TEST
+           ========================================================= */
+
+        .quiz {
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: var(--radio);
+
+            box-shadow: var(--sombra);
+        }
+
+
+        .question {
+
+            margin-bottom: 30px;
+        }
+
+
+        .question h3 {
+
+            margin-bottom: 12px;
+
+            color: var(--azul);
+        }
+
+
+        .question label {
+
+            display: block;
+
+            padding: 10px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+
+        .question label:hover {
+
+            background: #f0f3f5;
+        }
+
+
+        .primary-button {
+
+            border: none;
+
+            padding: 14px 24px;
+
+            background: var(--rojo);
+
+            color: white;
+
+            font-weight: bold;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+
+        .primary-button:hover {
+
+            background: var(--rojo-oscuro);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        #quiz-result {
+
+            margin-top: 20px;
+
+            font-weight: bold;
+
+            font-size: 1.15rem;
+        }
+
+
+        /* =========================================================
+           CONCLUSIONES
+           ========================================================= */
+
+        .conclusion {
+
+            background:
+                linear-gradient(135deg,
+                    var(--azul),
+                    #0c293e);
+
+            color: white;
+
+            border-radius:
+                25px;
+
+            padding: 50px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, .15);
+        }
+
+
+        .conclusion h2 {
+
+            font-size: 2.5rem;
+
+            margin-bottom: 20px;
+        }
+
+
+        .conclusion-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 20px;
+
+            margin-top: 30px;
+        }
+
+
+        .conclusion-box {
+
+            background:
+                rgba(255, 255, 255, .1);
+
+            border:
+                1px solid rgba(255, 255, 255, .15);
+
+            border-radius: 15px;
+
+            padding: 22px;
+        }
+
+
+        .conclusion-box h3 {
+
+            margin-bottom: 8px;
+
+            color: white;
+        }
+
+
+        /* =========================================================
+           FUENTES
+           ========================================================= */
+
+        .sources {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: var(--radio);
+
+            box-shadow: var(--sombra);
+        }
+
+
+        .sources li {
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================================================
+           BOTÓN ARRIBA
+           ========================================================= */
+
+        #topButton {
+
+            position: fixed;
+
+            right: 20px;
+
+            bottom: 20px;
+
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: var(--rojo);
+
+            color: white;
+
+            font-size: 1.3rem;
+
+            cursor: pointer;
+
+            display: none;
+
+            z-index: 2000;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, .2);
+        }
+
+
+        /* =========================================================
+           PIE DE PÁGINA
+           ========================================================= */
+
+        footer {
+
+            background: #15191d;
+
+            color: white;
+
+            padding: 45px 20px;
+
+            text-align: center;
+        }
+
+
+        footer p {
+
+            opacity: .8;
+
+            margin: 5px;
+        }
+
+
+        /* =========================================================
+           ANIMACIÓN DE APARICIÓN
+           ========================================================= */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(25px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+
+        .reveal.visible {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 800px) {
+
+            .two-columns {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .timeline::before {
+
+                left: 15px;
+
+                transform: none;
+            }
+
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+
+                width: 100%;
+
+                left: 0;
+
+                padding:
+                    20px 20px 20px 45px;
+
+                text-align: left;
+            }
+
+
+            .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+
+                left: 6px;
+
+                right: auto;
+            }
+
+
+            .conclusion {
+
+                padding: 30px 20px;
+            }
+
+
+            nav a {
+
+                padding:
+                    10px 8px;
+
+                font-size: .78rem;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         HERO / PORTADA
+         ========================================================= -->
+
+    <header>
+
+        <div class="hero-content">
+
+            <div class="flag">🇩🇰</div>
+
+            <!-- ✏️ MODIFICAR: título -->
+
+            <h1>
+                Sistema Sanitario Danés
+            </h1>
+
+
+            <!-- ✏️ MODIFICAR: subtítulo -->
+
+            <p>
+                Análisis de la organización, financiación,
+                funcionamiento y características del sistema
+                sanitario de Dinamarca.
+            </p>
+
+
+            <a href="#introduccion" class="hero-button">
+                Explorar proyecto ↓
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MENÚ DE NAVEGACIÓN
+         ========================================================= -->
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="#introduccion">
+                    Introducción
+                </a>
+            </li>
+
+            <li>
+                <a href="#organizacion">
+                    Organización
+                </a>
+            </li>
+            <li>
+                <a href="#gasto">
+                    Gasto
+                </a>
+            </li>
+
+            <li>
+                <a href="#comparacion">
+                    Comparación
+                </a>
+            </li>
+
+            <li>
+                <a href="#historia">
+                    Historia
+                </a>
+            </li>
+
+            <li>
+                <a href="#interactivo">
+                    Preguntas
+                </a>
+            </li>
+
+            <li>
+                <a href="#conclusiones">
+                    Conclusiones
+                </a>
+            </li>
+
+            <li>
+                <a href="#fuentes">
+                    Fuentes
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- =====================================================
+             1. INTRODUCCIÓN
+             ===================================================== -->
+
+        <section id="introduccion" class="reveal">
+
+            <div class="section-heading">
+
+                <span class="number">
+                    01 · INTRODUCCIÓN
+                </span>
+
+                <h2>
+                    ¿Qué es el sistema sanitario danés?
+                </h2>
+
+                <p>
+                    Introducción al modelo sanitario de Dinamarca.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <!--
+                    ✏️ MODIFICAR
+
+                    ESCRIBE AQUÍ TU INTRODUCCIÓN.
+
+                    Puedes explicar:
+
+                    - Qué tipo de sistema sanitario tiene Dinamarca.
+                    - Cómo se organiza.
+                    - Quién lo financia.
+                    - Qué población cubre.
+                    - Por qué has elegido este tema.
+                -->
+
+                <p>
+
+                    El sistema sanitario danés constituye una parte
+                    fundamental del modelo de bienestar de Dinamarca.
+
+                    Su organización combina diferentes niveles
+                    administrativos y una importante participación
+                    pública.
+
+                </p>
+
+                <br>
+
+                <p>
+
+                    Es un modelo público y universal, basado en el modelo de Beveridge, que garantiza el acceso a la
+                    atención médica
+                    a todos los ciudadanos y residentes del país.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             2. ORGANIZACIÓN
+             ===================================================== -->
+
+        <section id="organizacion" class="reveal">
+
+            <div class="section-heading">
+
+                <span class="number">
+                    02 · ORGANIZACIÓN
+                </span>
+
+                <h2>
+                    ¿Cómo se organiza?
+                </h2>
+
+                <p>
+                    Los diferentes niveles que participan en la sanidad.
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        🏛️
+                    </div>
+
+                    <h3>
+                        Estado
+                    </h3>
+
+                    <!-- ✏️ MODIFICAR -->
+
+                    <p>
+                        Es el Ministerio de Salud, que es la principal autoridad sanitaria responsable de las políticas
+                        y la legislación nacional en materia de salud
+
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        🗺️
+                    </div>
+
+                    <h3>
+                        Regiones
+                    </h3>
+
+                    <!-- ✏️ MODIFICAR -->
+
+                    <p>
+                        Las cinco regiones de Dinamarca son responsables de la atención primaria y secundaria,
+                        incluyendo tratamientos hospitalarios y psiquiátricos.
+
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        🏘️
+                    </div>
+
+                    <h3>
+                        Municipios
+                    </h3>
+
+                    <!-- ✏️ MODIFICAR -->
+
+                    <p>
+                        Los 98 municipios de Dinamarca se encargan de la atención primaria,
+                        incluyendo servicios de salud pública, atención a domicilio y servicios de rehabilitación.
+
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        👨‍⚕️
+                    </div>
+
+                    <h3>
+                        Atención primaria
+                    </h3>
+
+                    <!-- ✏️ MODIFICAR -->
+
+                    <p>
+                        La atención primaria ofrece prevención, diagnóstico y tratamiento. Para acceder a la atención
+                        especializada,
+                        se necesita una derivación médica y estar registrado en el sistema de salud danés, con la
+                        targeta amarilla (sundhedskort).
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+             4. DATOS GENERALES
+             ===================================================== -->
+
+        <section class="reveal">
+
+            <div class="section-heading">
+
+                <span class="number">
+                    03 · DATOS GENERALES
+                </span>
+
+                <h2>
+                    Algunos datos
+                </h2>
+
+                <p>
+                    Datos generales sobre el sistema sanitario danés. (2025)
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+
+                <!-- ✏️ MODIFICAR -->
+
+                <div class="stat">
+
+                    <div class="stat-number">
+                        6.002.507
+                    </div>
+
+                    <div class="stat-label">
+                        Población
+                    </div>
+
+                </div>
+
+
+                <!-- ✏️ MODIFICAR -->
+
+                <div class="stat">
+
+                    <div class="stat-number">
+                        85 %
+                    </div>
+
+                    <div class="stat-label">
+                        Indicador sanitario
+                    </div>
+
+                </div>
+
+
+                <!-- ✏️ MODIFICAR -->
+
+                <div class="stat">
+
+                    <div class="stat-number">
+                        462.527 Millones USD
+                    </div>
+
+                    <div class="stat-label">
+                        Indicador económico
+                    </div>
+
+                </div>
+
+
+                <!-- ✏️ MODIFICAR -->
+
+                <div class="stat">
+
+                    <div class="stat-number">
+                        42,3 años (media)
+                    </div>
+
+                    <div class="stat-label">
+                        Indicador demográfico
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             5. GRÁFICO SVG DE GASTO SANITARIO
+             ===================================================== -->
+
+        <section id="gasto" class="reveal">
+
+            <div class="section-heading">
+
+                <span class="number">
+                    04 · GASTO SANITARIO
+                </span>
+
+                <h2>
+                    Evolución del gasto
+                </h2>
+
+            </div>
+
+
+            <div class="panel">
+
+
+                <!--
+                    =================================================
+                    ✏️ MODIFICAR LOS DATOS DEL GRÁFICO
+
+                    Cambia:
+
+                    - Los años.
+                    - Los valores.
+                    - Las etiquetas.
+
+                    Los valores utilizados aquí son marcadores
+                    para que introduzcas las cifras de tu fuente.
+                    =================================================
+                -->
+
+
+                <div class="chart-container">
+
+
+                    <svg class="chart" viewBox="0 0 900 500" role="img" aria-label="Gráfico de gasto sanitario">
+
+
+                        <text class="chart-title" x="450" y="35" text-anchor="middle">
+                            Gasto sanitario 2021-2025 (Millones de €)
+                        </text>
+
+
+                        <!-- LÍNEAS DE REFERENCIA -->
+
+                        <line class="chart-grid" x1="100" y1="100" x2="850" y2="100" />
+
+                        <line class="chart-grid" x1="100" y1="180" x2="850" y2="180" />
+
+                        <line class="chart-grid" x1="100" y1="260" x2="850" y2="260" />
+
+                        <line class="chart-grid" x1="100" y1="340" x2="850" y2="340" />
+
+                        <line class="chart-grid" x1="100" y1="420" x2="850" y2="420" />
+
+
+                        <!-- EJES -->
+
+                        <line class="chart-axis" x1="100" y1="80" x2="100" y2="420" />
+
+                        <line class="chart-axis" x1="100" y1="420" x2="850" y2="420" />
+
+
+                        <!--
+                            GRÁFICO DE EJEMPLO
+
+                            ✏️ MODIFICAR:
+                            Cambia la altura de las barras según
+                            tus datos.
+
+                            La posición "y" y la altura "height"
+                            determinan visualmente el tamaño.
+                        -->
+
+
+                        <rect class="chart-bar-denmark" x="150" y="220" width="80" height="200" rx="8" />
+
+                        <rect class="chart-bar-denmark" x="300" y="190" width="80" height="230" rx="8" />
+
+                        <rect class="chart-bar-denmark" x="450" y="160" width="80" height="260" rx="8" />
+
+                        <rect class="chart-bar-denmark" x="600" y="130" width="80" height="290" rx="8" />
+
+                        <rect class="chart-bar-denmark" x="750" y="110" width="80" height="310" rx="8" />
+
+
+                        <!-- ETIQUETAS -->
+
+                        <text class="chart-text" x="190" y="450" text-anchor="middle">
+                            2021
+                        </text>
+
+                        <text class="chart-text" x="340" y="450" text-anchor="middle">
+                            2022
+                        </text>
+
+                        <text class="chart-text" x="490" y="450" text-anchor="middle">
+                            2023
+                        </text>
+
+                        <text class="chart-text" x="640" y="450" text-anchor="middle">
+                            2024
+                        </text>
+
+                        <text class="chart-text" x="790" y="450" text-anchor="middle">
+                            2025
+                        </text>
+
+
+                    </svg>
+
+                </div>
+
+
+                <p style="margin-top:20px; color:#66717b;">
+
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             6. COMPARACIÓN DINAMARCA / ESPAÑA
+             ===================================================== -->
+
+        <section id="comparacion" class="reveal">
+
+            <div class="section-heading">
+
+                <span class="number">
+                    05 · COMPARACIÓN
+                </span>
+
+                <h2>
+                    Dinamarca y España
+                </h2>
+
+                <p>
+                    Comparación de algunas características de ambos
+                    sistemas sanitarios.
+                </p>
+
+            </div>
+
+
+            <div class="panel">
+
+
+                <!--
+                    ✏️ MODIFICAR
+
+                    Los valores "XX" son marcadores.
+
+                    Introduce solamente datos procedentes de fuentes
+                    que puedas citar en tu trabajo.
+                -->
+
+
+                <div class="chart-container">
+
+
+                    <svg class="chart" viewBox="0 0 900 550">
+
+
+                        <text class="chart-title" x="450" y="35" text-anchor="middle">
+                            Comparación Dinamarca — España
+                        </text>
+
+
+                        <!-- EJE -->
+
+                        <line class="chart-axis" x1="100" y1="100" x2="100" y2="470" />
+
+                        <line class="chart-axis" x1="100" y1="470" x2="850" y2="470" />
+
+
+                        <!--
+                            BARRAS
+
+                            ✏️ MODIFICAR ALTURA
+
+                            Dinamarca
+                            España
+                        -->
+
+
+                        <!-- INDICADOR 1 -->
+
+                        <rect class="chart-bar-denmark" x="170" y="220" width="70" height="250" rx="7" />
+
+                        <rect class="chart-bar-spain" x="250" y="250" width="70" height="220" rx="7" />
+
+
+                        <!-- INDICADOR 2 -->
+
+                        <rect class="chart-bar-denmark" x="390" y="180" width="70" height="290" rx="7" />
+
+                        <rect class="chart-bar-spain" x="470" y="210" width="70" height="260" rx="7" />
+
+
+                        <!-- INDICADOR 3 -->
+
+                        <rect class="chart-bar-denmark" x="610" y="270" width="70" height="200" rx="7" />
+
+                        <rect class="chart-bar-spain" x="690" y="230" width="70" height="240" rx="7" />
+
+
+                        <!-- ETIQUETAS -->
+
+                        <text class="chart-text" x="245" y="510" text-anchor="middle">
+                            Tasa de Natalidad
+                        </text>
+
+
+                        <text class="chart-text" x="465" y="510" text-anchor="middle">
+                            Tasa de Mortalidad
+                        </text>
+
+
+                        <text class="chart-text" x="685" y="510" text-anchor="middle">
+                            Crecimiento Poblacional
+                        </text>
+
+
+                        <!-- LEYENDA -->
+
+                        <rect x="150" y="65" width="20" height="20" class="chart-bar-denmark" />
+
+                        <text class="chart-text" x="180" y="81">
+                            Dinamarca
+                        </text>
+
+
+                        <rect x="300" y="65" width="20" height="20" class="chart-bar-spain" />
+
+                        <text class="chart-text" x="330" y="81">
+                            España
+                        </text>
+
+
+                    </svg>
+
+                </div>
+
+
+                <br>
+
+
+                <!-- TABLA COMPARATIVA -->
+
+                <table class="comparison-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Característica
+                            </th>
+
+                            <th>
+                                🇩🇰 Dinamarca
+                            </th>
+
+                            <th>
+                                🇪🇸 España
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        <tr>
+
+                            <td>
+                                Organización
+                            </td>
+
+                            <!-- ✏️ MODIFICAR -->
+
+                            <td>
+                                Estado, 5 regiones y 98 municipios. Las regiones gestionan hospitales
+                            </td>
+
+                            <!-- ✏️ MODIFICAR -->
+
+                            <td>
+                                Estado y 17 comunidades autónomas, que gestionan gran parte de la sanidad.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Financiación
+                            </td>
+
+                            <td>
+                                Mediante impuestos y servicios públicos gratuitos.
+                            </td>
+
+                            <td>
+                                Mediante financiación pública e impuestos.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Atención primaria
+                            </td>
+
+                            <td>
+                                Medicos de familia y servicios municipales de salud.
+                            </td>
+
+                            <td>
+                                Centros de salud y consultorios: En 2025 había 13.024.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Hospitales
+                            </td>
+
+                            <td>
+                                La mayoria públicos y gestionados por las regiones.
+                            </td>
+
+                            <td>
+                                La mayoria son público gestionados por las comunidades.
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             7. LÍNEA TEMPORAL
+             ===================================================== -->
+
+        <section id="historia" class="reveal">
+
+            <div class="section-heading">
+
+                <span class="number">
+                    06 · HISTORIA
+                </span>
+
+                <h2>
+                    Evolución histórica
+                </h2>
+
+                <p>
+                    Principales etapas que marcaron la historia.
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <!--
+                    ✏️ MODIFICAR
+
+                    Cambia los años y los acontecimientos según
+                    las fuentes de tu trabajo.
+                -->
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            1757
+                        </h3>
+
+                        <p>
+                            Se inaugura el primer hospital para la investigación
+                            y tratamiento para enfermos con pocos recursos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            1903
+                        </h3>
+
+                        <p>
+                            Se otorga el Nobel de Medicina a Niels Finsen, por
+                            desarrollar el uso de luz concentrada para tratar enfermedades de la piel, como el lupus
+                            vulgaris.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            2004
+                        </h3>
+
+                        <p>
+                            Los hospitales comienzan a registrar eventos adversos para mejorar la seguridad sanitaria.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            Actualidad
+                        </h3>
+
+                        <p>
+                            Sistema sanitario público de acceso general, y digitalización sanitaria.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             8. PREGUNTAS FRECUENTES
+             ===================================================== -->
+
+        <section class="reveal">
+
+            <div class="section-heading">
+
+                <span class="number">
+                    07 · INFORMACIÓN
+                </span>
+
+                <h2>
+                    Preguntas frecuentes
+                </h2>
+
+                <p>
+                    Seccion de preguntas de la web.
+                </p>
+
+            </div>
+
+
+            <div class="accordion">
+
+
+                <div class="accordion-item">
+
+                    <button class="accordion-button">
+
+                        ¿Cómo se financia el sistema sanitario?
+
+                    </button>
+
+
+                    <div class="accordion-content">
+
+                        <!-- ✏️ MODIFICAR -->
+
+                        <p>
+                            Se financian mediante impuestos generales, y contribuciones.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="accordion-item">
+
+                    <button class="accordion-button">
+
+                        ¿Cómo se organiza la sanidad?
+
+                    </button>
+
+
+                    <div class="accordion-content">
+
+                        <!-- ✏️ MODIFICAR -->
+
+                        <p>
+                            Se organiza en tres niveles: Estado, Regiones y Municipios.
+                            El Estado establece políticas y financia,
+                            las Regiones gestionan hospitales y los Municipios se encargan de la atención primaria.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="accordion-item">
+
+                    <button class="accordion-button">
+
+                        ¿Cuáles son sus principales retos?
+
+                    </button>
+
+
+                    <div class="accordion-content">
+
+                        <!-- ✏️ MODIFICAR -->
+
+                        <p>
+                            Los mayores retos son los de la falta de coordinación entre los diferentes sectores
+                            sanitarios
+                            y la escasez de personal en algunos sectores.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="accordion-item">
+
+                    <button class="accordion-button">
+
+                        ¿Qué diferencias existen con España?
+
+                    </button>
+
+
+                    <div class="accordion-content">
+
+                        <!-- ✏️ MODIFICAR -->
+
+                        <p>
+                            Existen pocas diferencias, pero las más principales son en la cobertura dental y
+                            farmaceutica.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             9. TEST INTERACTIVO
+             ===================================================== -->
+
+        <section id="interactivo" class="reveal">
+
+            <div class="section-heading">
+
+                <span class="number">
+                    08 · INTERACTIVO
+                </span>
+
+                <h2>
+                    ¿Cuánto has aprendido?
+                </h2>
+
+                <p>
+                    Pequeño cuestionario sobre el sistema sanitario.
+                </p>
+
+            </div>
+
+
+            <div class="quiz">
+
+
+                <!-- PREGUNTA 1 -->
+
+                <div class="question">
+
+                    <h3>
+                        1. ¿Qué país es el objeto de este proyecto?
+                    </h3>
+
+
+                    <label>
+
+                        <input type="radio" name="q1" value="a">
+
+                        España
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="radio" name="q1" value="b">
+
+                        Dinamarca
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="radio" name="q1" value="c">
+
+                        Alemania
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- PREGUNTA 2 -->
+
+                <div class="question">
+
+                    <h3>
+                        2. ¿Qué aspecto estudia este proyecto?
+                    </h3>
+
+
+                    <label>
+
+                        <input type="radio" name="q2" value="a">
+
+                        El sistema sanitario
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="radio" name="q2" value="b">
+
+                        El sistema ferroviario
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="radio" name="q2" value="c">
+
+                        El sistema educativo exclusivamente
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- PREGUNTA 3 -->
+
+                <div class="question">
+
+                    <h3>
+                        3. ¿Cuál es el objetivo de este proyecto?
+                    </h3>
+
+
+                    <label>
+
+                        <input type="radio" name="q3" value="a">
+
+                        Aprender a cerca de como funciona el sistema sanitario danés
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="radio" name="q3" value="b">
+
+                        Comprender que el sitema sanitario danés es mejor que el español.
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="radio" name="q3" value="c">
+
+                        Demostrar la eficacia de la medicina danés en la quimioterapia.
+
+                    </label>
+
+                </div>
+
+
+
+                <button class="primary-button" onclick="checkQuiz()">
+
+                    Comprobar respuestas
+
+                </button>
+
+
+                <div id="quiz-result"></div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             10. CONCLUSIONES
+             ===================================================== -->
+
+        <section id="conclusiones" class="reveal">
+
+
+            <div class="conclusion">
+
+
+                <!--
+                    =================================================
+                    ✏️ MUY IMPORTANTE
+
+                    ESTA ES UNA DE LAS PARTES QUE MÁS DEBES
+                    PERSONALIZAR.
+
+                    No copies una conclusión genérica.
+
+                    Escribe aquí lo que TÚ hayas deducido después
+                    de realizar la investigación.
+                    =================================================
+                -->
+
+
+                <h2>
+                    Conclusiones
+                </h2>
+
+
+                <p>
+
+                    Después de analizar el sistema sanitario danés,
+                    podemos identificar diferentes características
+                    relacionadas con su organización, financiación
+                    y funcionamiento.
+
+                </p>
+
+
+                <div class="conclusion-grid">
+
+
+                    <div class="conclusion-box">
+
+                        <h3>
+                            🔎 Aspecto 1
+                        </h3>
+
+                        <p>
+                            El sistema sanitario danés presenta un modelo bastante bien organizado y discreto con sus
+                            pacientes.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="conclusion-box">
+
+                        <h3>
+                            📊 Aspecto 2
+                        </h3>
+
+                        <p>
+                            Destaca por sus logros en la medicina moderna, e innovacion en tecnología y ciencia
+                            médica.(puesto 14)
+                        </p>
+
+                    </div>
+
+
+                    <div class="conclusion-box">
+
+                        <h3>
+                            🇪🇸 Similitud
+                        </h3>
+
+                        <p>
+                            Ambos sistemas sanitarios, presentan una cobertura universal y financiación pública
+                            garantizada.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="conclusion-box">
+
+                        <h3>
+                            💭 Reflexión
+                        </h3>
+
+                        <p>
+                            Como pequeña reflexión, este sistema presenta grandes ventajas en el entorno laboral, y en
+                            el ambito de la medicina moderna,
+                            pero también destaca, por su escasez de profesionales y por su vulnerabilidad en las
+                            infraestructuras informáticas.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             9. FUENTES
+             ===================================================== -->
+
+        <section id="fuentes" class="reveal">
+
+            <div class="section-heading">
+
+                <span class="number">
+                    9 · BIBLIOGRAFÍA
+                </span>
+
+                <h2>
+                    Fuentes utilizadas
+                </h2>
+
+                <p>
+                    Bibliografía y recursos empleados en el proyecto.
+                </p>
+
+            </div>
+
+
+            <div class="sources">
+
+
+                <!--
+                    =================================================
+                    ✏️ MODIFICAR
+
+                    AÑADE AQUÍ TUS FUENTES REALES.
+
+                    Te recomiendo poner:
+
+                    - Autor / institución
+                    - Título
+                    - Año
+                    - URL si procede
+                    - Fecha de consulta
+
+                    NO dejes "Fuente 1" en la versión final.
+                    =================================================
+                -->
+
+
+                <ol>
+
+
+                    <li>
+
+                        <strong>
+                            Fuente 1:
+                        </strong>
+
+                        European Observatory on Health Systems and Policies.
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Fuente 2:
+                        </strong>
+
+                        Danish Health Data Authority.
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Fuente 3:
+                        </strong>
+
+                        Universidad de Copenhague.
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Fuente 4:
+                        </strong>
+
+                        Banco Mundial.
+
+                    </li>
+
+
+                </ol>
+
+
+                <br>
+
+
+                <p>
+
+                    <strong>
+                        Nota:
+                    </strong>
+
+                    Las cifras y afirmaciones del proyecto están
+                    contrastadas con las fuentes indicadas en
+                    el trabajo.
+
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         PIE DE PÁGINA
+         ========================================================= -->
+
+    <footer>
+
+
+        <!-- ✏️ MODIFICAR -->
+
+        <h3>
+            Sistema Sanitario Danés
+        </h3>
+
+
+        <p>
+            Proyecto de 2º de Bachillerato.
+        </p>
+
+
+        <!-- ✏️ MODIFICAR -->
+
+        <p>
+            Autor: Daniel González Gómez.
+        </p>
+
+
+        <!-- ✏️ MODIFICAR -->
+
+        <p>
+            Curso: 2026-2027
+        </p>
+
+
+        <br>
+
+
+        <p>
+            Página web desarrollada por Daniel González Gómez. Todos los derechos reservados.
+        </p>
+
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         BOTÓN VOLVER ARRIBA
+         ========================================================= -->
+
+    <button id="topButton" onclick="goTop()" aria-label="Volver arriba">
+        ↑
+    </button>
+
+
+
+    <!-- =========================================================
+         
+         ========================================================= -->
+
+    <script>
+
+
+        /* =========================================================
+           MAPA INTERACTIVO
+           ========================================================= */
+
+
+        function showRegion(region) {
+
+
+            const information = {
+
+                /*
+                    ✏️ MODIFICAR
+
+                    Escribe aquí la información que quieres que
+                    aparezca al pulsar cada zona.
+                */
+
+
+                "Jutlandia":
+                    "✏️ Añade aquí información relacionada con Jutlandia.",
+
+
+                "Fionia":
+                    "✏️ Añade aquí información relacionada con Fionia.",
+
+
+                "Selandia":
+                    "✏️ Añade aquí información relacionada con Selandia.",
+
+
+                "Bornholm":
+                    "✏️ Añade aquí información relacionada con Bornholm."
+
+            };
+
+
+            const box =
+                document.getElementById("map-info");
+
+
+            box.innerHTML =
+                "<strong>" +
+                region +
+                "</strong><br>" +
+                information[region];
+
+        }
+
+
+
+        /* =========================================================
+           ACORDEÓN
+           ========================================================= */
+
+
+        const accordionButtons =
+            document.querySelectorAll(
+                ".accordion-button"
+            );
+
+
+        accordionButtons.forEach(function (button) {
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+
+                    const content =
+                        button.nextElementSibling;
+
+
+                    content.classList.toggle(
+                        "open"
+                    );
+
+
+                }
+            );
+
+
+        });
+
+
+
+        /* =========================================================
+           TEST
+           ========================================================= */
+
+
+        function checkQuiz() {
+
+
+            let score = 0;
+
+
+            /*
+                ✏️ MODIFICAR RESPUESTAS
+
+                Si cambias las preguntas, cambia aquí
+                la respuesta correcta.
+
+                q1 = b
+                q2 = a
+                q3 = a
+            */
+
+
+            const correctAnswers = {
+
+                q1: "b",
+
+                q2: "a",
+
+                q3: "a"
+
+            };
+
+
+            Object.keys(correctAnswers)
+                .forEach(function (question) {
+
+
+                    const selected =
+                        document.querySelector(
+                            `input[name="${question}"]:checked`
+                        );
+
+
+                    if (
+                        selected &&
+                        selected.value ===
+                        correctAnswers[question]
+                    ) {
+
+                        score++;
+
+                    }
+
+
+                });
+
+
+            const result =
+                document.getElementById(
+                    "quiz-result"
+                );
+
+
+            result.textContent =
+                `Resultado: ${score} de 3 respuestas correctas Felicidades!`;
+
+        }
+
+
+
+        /* =========================================================
+           ANIMACIÓN DE SECCIONES
+           ========================================================= */
+
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+
+                    entries.forEach(function (entry) {
+
+
+                        if (entry.isIntersecting) {
+
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+
+                        }
+
+
+                    });
+
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        document
+            .querySelectorAll(".reveal")
+            .forEach(function (element) {
+
+                observer.observe(element);
+
+            });
+
+
+
+        /* =========================================================
+           BOTÓN VOLVER ARRIBA
+           ========================================================= */
+
+
+        const topButton =
+            document.getElementById(
+                "topButton"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+
+                if (window.scrollY > 500) {
+
+                    topButton.style.display =
+                        "block";
+
+                } else {
+
+                    topButton.style.display =
+                        "none";
+
+                }
+
+
+            }
+        );
+
+
+        function goTop() {
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+
+        }
+
+
+
+        /* =========================================================
+           COMPROBACIÓN DE QUE JAVASCRIPT FUNCIONA
+
+           Puedes eliminar esta parte cuando hayas terminado.
+           ========================================================= */
+
+
+        console.log(
+            "Web del proyecto cargada correctamente."
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
+
+<!-- hola si lees esto, es porque eres un usuario avanzado y un frikazo, enhorabuena, considerate afortunado.
+ Si eres Alberto dame un 10 ;). -->
